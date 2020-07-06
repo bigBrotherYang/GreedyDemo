@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution {
+public class Solution1 {
     /**
      * 两数之和
      */
