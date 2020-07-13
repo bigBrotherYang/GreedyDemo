@@ -6,6 +6,7 @@ public class Solution2 {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
        int  i =  l1.val + l2.val;
+       return  null;
     }
     public static class ListNode{
         int val;

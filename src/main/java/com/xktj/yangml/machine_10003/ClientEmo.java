@@ -1,6 +1,7 @@
 package com.xktj.yangml.machine_10003;
 
 import java.io.InputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
@@ -26,10 +27,12 @@ class Em1 extends Thread{
     @Override
     public void run() {
         try{
-            Scanner sc = new Scanner(System.in);
-            PrintWriter pw = new PrintWriter(socket.getOutputStream(),true);
-            System.out.println("请输入要传递的值");
-             pw.println(sc.next());
+
+            ObjectOutputStream  out  = new ObjectOutputStream(socket.getOutputStream());
+
+//            out.writeObject();
+
+
 
         }catch (Exception e){
             e.printStackTrace();

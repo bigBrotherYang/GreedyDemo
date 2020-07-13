@@ -34,23 +34,53 @@ public class Solution1 {
 //            map.put(temp,i);
 //        }
 //        return new int[]{-1,-1};
-        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
-        for(int i=0;i<arr.length;i++){
-            int n = target-arr[i];
-            if(map.containsKey(n)){
-                return new int[]{map.get(n),i};
+//        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+//        for(int i=0;i<arr.length;i++){
+//            int n = target-arr[i];
+//            if(map.containsKey(n)){
+//                return new int[]{map.get(n),i};
+//            }
+//            map.put(n,i);
+//        }
+
+
+        /**
+         *   两数之和求索引
+         *   这种叫暴力破解
+         */
+//        for (int i = 0; i < arr.length; i++) {
+//            for (int j = i+1; j < arr.length ; j++) {
+//                if (target==arr[i]+arr[j]){
+//                    return new int[]{i,j};
+//                }
+//            }
+//        }
+
+        /**
+         * 用hash表来完成 可以减少循环的次数
+         */
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int num = target - arr[i];
+            if (map.containsKey(num)){
+                return new int[]{map.get(num),i};
             }
-            map.put(n,i);
+            map.put(arr[i],i);
         }
         return new int[]{-1,-1} ;
     }
 
     @Test
     public void test(){
+        /**
+         * 7-2 = 5;
+         * 7-5 = 2;
+         */
         int[] arr = {2,5,5,11};
 //        int[] ints = twoSum(arr, 10);
-        int[] ints1 = addTowNumHash( 10,arr);
+        int[] ints1 = addTowNumHash( 7,arr);
 //        System.out.println(ints[0]+"+"+ints[1]+"="+(ints[0]+ints[1]));
         System.out.println(arr[ints1[0]]+"+"+arr[ints1[1]]+"="+(arr[ints1[0]]+arr[ints1[1]]));
+        System.out.println(ints1[0]+"-----"+ints1[1]);
     }
 }
